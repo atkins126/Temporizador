@@ -15,7 +15,7 @@ begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
   TStyleManager.TrySetStyle('Glossy');
-  Application.Title := 'Temporizador 1.0';
+  Application.Title := 'Temporizador 1.2';
   Application.CreateForm(TFPrinc, FPrinc);
   Application.Run;
 end.

@@ -5,8 +5,8 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes,
   Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons,
-  Vcl.Mask, RzEdit, RzSpnEdt, Vcl.ExtCtrls, UtilesTemp, RzBorder,
-  System.ImageList, Vcl.ImgList, Vcl.Menus;
+  Vcl.Mask, RzEdit, RzSpnEdt, Vcl.ExtCtrls, UtilesTemp, Vcl.Menus, RzBorder,
+  System.ImageList, Vcl.ImgList, RzPanel, RzRadGrp, RzStatus;
 
 type
   TFPrinc = class(TForm)
@@ -34,6 +34,8 @@ type
     SBAcerca: TSpeedButton;
     AcercadeTemporizador1: TMenuItem;
     N2: TMenuItem;
+    RGrupo: TRzRadioGroup;
+    RzClockStatus1: TRzClockStatus;
     procedure SBPausarClick(Sender: TObject);
     procedure SBIniciarClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -45,6 +47,7 @@ type
     procedure Mostrarventana1Click(Sender: TObject);
     procedure SBAcercaClick(Sender: TObject);
     procedure TrayIconAnimate(Sender: TObject);
+    procedure RGrupoClick(Sender: TObject);
   private
     procedure ValInicio;
     procedure VentanaActiva(Opcion: boolean);
@@ -81,6 +84,7 @@ begin
   GBTexto.Enabled:=true;
   MmMensaje.Clear;
   MmMensaje.SetFocus;
+  RGrupoClick(Self);
 end;
 
 procedure TFPrinc.VentanaActiva(Opcion: boolean);
@@ -106,14 +110,25 @@ begin
   VentanaActiva(true);
 end;
 
+procedure TFPrinc.RGrupoClick(Sender: TObject);
+begin
+  if RGrupo.ItemIndex=0 then SpEdHoras.Max:=11
+                        else SpEdHoras.Max:=23;
+end;
+
 procedure TFPrinc.SBIniciarClick(Sender: TObject);
+var
+  H,M,S: word;
 begin
   Alarma.Mensaje:=MmMensaje.Text;
-  Alarma.TiempoSeg:=Trunc((SpEdHoras.Value*3600)+(SpEdMinutos.Value*60)+
-                          (SpEdSegundos.Value));
+  H:=Trunc(SpEdHoras.Value);
+  M:=Trunc(SpEdMinutos.Value);
+  S:=Trunc(SpEdSegundos.Value);
+  if RGrupo.ItemIndex=0 then Alarma.TiempoSeg:=(H*3600)+(M*60)+S
+                        else DiferenciaDeSegundos(EncodeTime(H,M,S,0));
   GBTexto.Enabled:=false;
   SBIniciar.Enabled:=false;
-  SBPausar.Enabled:=true;
+  SBPausar.Enabled:=RGrupo.ItemIndex=0;
   GBTiempo.Enabled:=false;
   Timer.Enabled:=true;
   TrayIcon.Animate:=true;

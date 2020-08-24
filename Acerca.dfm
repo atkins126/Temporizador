@@ -1116,7 +1116,7 @@ object FAcerca: TFAcerca
       Top = 28
       Width = 22
       Height = 13
-      Caption = 'v1.0'
+      Caption = 'v1.2'
     end
     object Label3: TLabel
       Left = 30

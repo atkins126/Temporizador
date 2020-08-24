@@ -9,7 +9,8 @@ Aplicación que actúa como un cronómetro regresivo, y que al finalizar el tiem
 ## Modo de uso
 
 
-* Escribir el mensaje o aviso a mostrar en el memo de "Mensaje a mostrar". 
+* Escribir el mensaje o aviso a mostrar en el memo de "Mensaje a mostrar".
+* Seleccionar si es "Temporizador simple" o "A una hora específica". En este último caso, simplemente seleccionar la hora a la que sonará la alarma.
 * Establecer el tiempo (horas, minutos y segundos).
 * Pulsar en el botón "Iniciar". A partir de ese momento comienza la cuenta regresiva.
 
@@ -19,7 +20,7 @@ En el icono de la barra de tareas se puede hacer click derecho y muestra un men�
 
 ## Notas
 
-* El máximo de tiempo a configurar es 11:59:59
+* El máximo de tiempo a configurar es 11:59:59 (modo Temporizador simple).
 * Compilado sólo para 32 bits.
 * Totalmente funcional.
 

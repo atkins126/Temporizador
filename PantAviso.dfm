@@ -97,4 +97,11 @@ object FPntAviso: TFPntAviso
     Left = 424
     Top = 16
   end
+  object TimerSnd: TTimer
+    Enabled = False
+    Interval = 300
+    OnTimer = TimerSndTimer
+    Left = 568
+    Top = 16
+  end
 end

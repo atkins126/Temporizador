@@ -98,11 +98,12 @@
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <AppEnableHighDPI>true</AppEnableHighDPI>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-        <VerInfo_Keys>CompanyName=Sáez Sistemas;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=Temporizador.exe;ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=;ProgramID=com.embarcadero.$(MSBuildProjectName)</VerInfo_Keys>
+        <VerInfo_Keys>CompanyName=Sáez Sistemas;FileDescription=$(MSBuildProjectName);FileVersion=1.2.0.0;InternalName=Temporizador;LegalCopyright=;LegalTrademarks=;OriginalFilename=Temporizador.exe;ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=Temporizador y alarma para PC;ProgramID=com.embarcadero.$(MSBuildProjectName)</VerInfo_Keys>
         <Icon_MainIcon>Temporizador_Icon.ico</Icon_MainIcon>
         <UWP_DelphiLogo44>D:\Users\Francisco Sáez\Documents\Embarcadero\Studio\Projects\Temporizador\Imagen\icono_temp.png</UWP_DelphiLogo44>
         <UWP_DelphiLogo150>D:\Users\Francisco Sáez\Documents\Embarcadero\Studio\Projects\Temporizador\Imagen\icono_temp.png</UWP_DelphiLogo150>
-        <VerInfo_Locale>1033</VerInfo_Locale>
+        <VerInfo_MinorVer>2</VerInfo_MinorVer>
+        <VerInfo_AutoGenVersion>true</VerInfo_AutoGenVersion>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>

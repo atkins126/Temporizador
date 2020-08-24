@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes,
   Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls,
   EsLabel, EsMarque, RzBorder, Vcl.ExtCtrls, UtilesTemp, Vcl.ComCtrls,
-  RzEdit;
+  RzEdit, Vcl.MPlayer, MMSystem;
 
 type
   TFPntAviso = class(TForm)
@@ -16,10 +16,12 @@ type
     Timer: TTimer;
     GBMensaje: TGroupBox;
     RchEMensaje: TRzRichEdit;
+    TimerSnd: TTimer;
     procedure Button1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure TimerTimer(Sender: TObject);
+    procedure TimerSndTimer(Sender: TObject);
   private
     { Private declarations }
     procedure RectRndForm;
@@ -33,6 +35,7 @@ var
 implementation
 
 {$R *.dfm}
+{$R sonido.RES}
 
 procedure TFPntAviso.RectRndForm;
 var
@@ -40,6 +43,12 @@ var
 begin
   Reg:=Winapi.Windows.CreateRoundRectRgn(0,0,ClientWidth,ClientHeight,50,50);
   SetWindowRgn(Handle, Reg, True);
+end;
+
+procedure TFPntAviso.TimerSndTimer(Sender: TObject);
+begin
+  //PlaySound(PChar(1),hInstance,SND_ASYNC or SND_MEMORY or SND_RESOURCE);
+  PlaySound(PChar(1),hInstance,SND_ASYNC or SND_RESOURCE);
 end;
 
 procedure TFPntAviso.TimerTimer(Sender: TObject);
@@ -50,6 +59,7 @@ end;
 
 procedure TFPntAviso.Button1Click(Sender: TObject);
 begin
+  TimerSnd.Enabled:=false;
   Close;
 end;
 
@@ -63,6 +73,7 @@ end;
 procedure TFPntAviso.FormShow(Sender: TObject);
 begin
   RectRndForm;
+  TimerSnd.Enabled:=true;
 end;
 
 end.

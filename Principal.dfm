@@ -5,7 +5,7 @@ object FPrinc: TFPrinc
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'Temporizador'
-  ClientHeight = 414
+  ClientHeight = 478
   ClientWidth = 411
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -20,7 +20,7 @@ object FPrinc: TFPrinc
   TextHeight = 13
   object SBIniciar: TSpeedButton
     Left = 13
-    Top = 304
+    Top = 368
     Width = 185
     Height = 49
     Caption = 'Iniciar'
@@ -28,7 +28,7 @@ object FPrinc: TFPrinc
   end
   object SBReiniciar: TSpeedButton
     Left = 61
-    Top = 368
+    Top = 432
     Width = 137
     Height = 35
     Caption = 'Reiniciar todo'
@@ -36,7 +36,7 @@ object FPrinc: TFPrinc
   end
   object SBPausar: TSpeedButton
     Left = 213
-    Top = 304
+    Top = 368
     Width = 185
     Height = 49
     Caption = 'Pausar'
@@ -44,7 +44,7 @@ object FPrinc: TFPrinc
   end
   object SBSalir: TSpeedButton
     Left = 213
-    Top = 368
+    Top = 432
     Width = 137
     Height = 35
     Caption = 'Salir'
@@ -52,7 +52,7 @@ object FPrinc: TFPrinc
   end
   object SBAcerca: TSpeedButton
     Left = 8
-    Top = 384
+    Top = 445
     Width = 23
     Height = 22
     Glyph.Data = {
@@ -121,12 +121,12 @@ object FPrinc: TFPrinc
     Left = 13
     Top = 119
     Width = 385
-    Height = 170
+    Height = 234
     Caption = ' Establecer tiempo '
     TabOrder = 1
     object Label1: TLabel
-      Left = 94
-      Top = 24
+      Left = 96
+      Top = 64
       Width = 33
       Height = 13
       Caption = 'Horas'
@@ -139,7 +139,7 @@ object FPrinc: TFPrinc
     end
     object Label2: TLabel
       Left = 170
-      Top = 24
+      Top = 64
       Width = 45
       Height = 13
       Caption = 'Minutos'
@@ -152,7 +152,7 @@ object FPrinc: TFPrinc
     end
     object Label3: TLabel
       Left = 244
-      Top = 24
+      Top = 64
       Width = 55
       Height = 13
       Caption = 'Segundos'
@@ -165,16 +165,23 @@ object FPrinc: TFPrinc
     end
     object LEDDisplay: TRzLEDDisplay
       Left = 50
-      Top = 96
+      Top = 136
       Width = 285
       Height = 49
       Enabled = False
       Caption = '00:00:00'
     end
+    object RzClockStatus1: TRzClockStatus
+      Left = 120
+      Top = 200
+      Width = 145
+      Format = 'dd/mm/yyyy - h:nn:ss'
+      Alignment = taCenter
+    end
     object SpEdHoras: TRzSpinEdit
-      Left = 89
-      Top = 48
-      Width = 46
+      Left = 88
+      Top = 88
+      Width = 50
       Height = 31
       AllowKeyEdit = True
       CheckRange = True
@@ -189,9 +196,9 @@ object FPrinc: TFPrinc
       OnChange = SpEdHorasChange
     end
     object SpEdMinutos: TRzSpinEdit
-      Left = 169
-      Top = 48
-      Width = 46
+      Left = 168
+      Top = 88
+      Width = 50
       Height = 31
       AllowKeyEdit = True
       CheckRange = True
@@ -206,9 +213,9 @@ object FPrinc: TFPrinc
       OnChange = SpEdHorasChange
     end
     object SpEdSegundos: TRzSpinEdit
-      Left = 249
-      Top = 48
-      Width = 46
+      Left = 248
+      Top = 88
+      Width = 50
       Height = 31
       AllowKeyEdit = True
       CheckRange = True
@@ -221,6 +228,20 @@ object FPrinc: TFPrinc
       ParentFont = False
       TabOrder = 2
       OnChange = SpEdHorasChange
+    end
+    object RGrupo: TRzRadioGroup
+      Left = 50
+      Top = 16
+      Width = 285
+      Height = 43
+      Caption = ''
+      Columns = 2
+      ItemIndex = 0
+      Items.Strings = (
+        'Temporizador simple'
+        'A una hora espec'#237'fica')
+      TabOrder = 3
+      OnClick = RGrupoClick
     end
   end
   object TrayIcon: TTrayIcon
@@ -242,7 +263,7 @@ object FPrinc: TFPrinc
     Left = 189
     Top = 34
     Bitmap = {
-      494C01010C008C00940010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01010C008C009C0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000004000000001002000000000000040
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
